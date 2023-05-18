@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --text-color: rgb(39, 39, 39);
+    --title-color: rgb(59, 59, 59);
+    --bg-color: rgb(231, 226, 226);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    width: min(90%, 1000px);
+    margin: 0 auto;
+    background-color: var(--bg-color);
+}
+
+h1,
+h2 {
+    text-align: center;
+    padding: 2em;
+    color: var(--title-color);
+}
+
+p {
+    line-height: 1.9em;
+    color: var(--text-color);
+}
+
+div.post {
+    padding-inline: min(3em, 1%);
+    padding-block: 2em;
+}
