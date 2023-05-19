@@ -5,6 +5,8 @@
     --text-color: rgb(39, 39, 39);
     --title-color: rgb(59, 59, 59);
     --bg-color: rgb(231, 226, 226);
+    --snippet-bg-color: rgb(226, 220, 220);
+    --shadow-color: rgb(216, 210, 210);
 }
 
 * {
@@ -19,11 +21,47 @@ body {
     background-color: var(--bg-color);
 }
 
+a {
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: unset;
+}
+
+em {
+    font-style: normal;
+}
+
+.blog {
+    display: flex;
+    flex-flow: column;
+}
+
+.snippet {
+    margin-inline: 1em;
+    margin-block: 3em;
+    background-color: var(--snippet-bg-color);
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 1px var(--shadow-color);
+}
+
 h1,
 h2 {
     text-align: center;
     padding: 2em;
     color: var(--title-color);
+}
+
+h2.title-teaser {
+    padding-inline: 0;
 }
 
 p {
@@ -34,4 +72,14 @@ p {
 div.post {
     padding-inline: min(3em, 1%);
     padding-block: 2em;
+}
+
+.img-container {
+    width: min(50%, 350px);
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
