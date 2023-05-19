@@ -13,7 +13,7 @@
 
 
 function dateParser ($date) {
-    $parsedDate = date("Y-m-d H:i:s", $date);
+    $parsedDate = date("Y-m-d", $date);
     return $parsedDate;
 }
 
