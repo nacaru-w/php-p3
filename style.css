@@ -69,6 +69,10 @@ p {
     color: var(--text-color);
 }
 
+p.date {
+    font-weight: bold;
+}
+
 div.post {
     padding-inline: min(3em, 1%);
     padding-block: 2em;
