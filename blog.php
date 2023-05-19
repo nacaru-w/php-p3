@@ -24,18 +24,18 @@ function textTrimmer ($string) {
     return $finalString;
 }
 
-function turnToSnippet ($title, $date, $summary, $image) {
+function turnToSnippet ($title, $date, $summary, $image, $id) {
     print $imgInHTML = "<div class=\"snippet\"><div class=\"img-container\"><img src=\"{$image}\"></div>";
     print $titleInHTML = "<h2 class=\"title-teaser\">{$title}</h2>";
     print $dateInHTML = "<p class=\"date\"> Publicado el " .dateParser($date) ."</p>";
-    print $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."...<em><a href=\"\"> saber más</a></em></p></div>";
+    print $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."...<em><a href=\"http://localhost/test/post.php?id={$id}\"> saber más</a></em></p></div>";
 }
 
 for ($i = 1; $i <= 5; $i++) {
     $api_url = "api/noticias/es/post_${i}.json";
     $json= file_get_contents($api_url);
     $data = json_decode($json);
-    turnToSnippet($data -> title -> es, $data -> date, $data -> description -> es, $data -> image);
+    turnToSnippet($data -> title -> es, $data -> date, $data -> description -> es, $data -> image, $i);
 }
 
 ?>
