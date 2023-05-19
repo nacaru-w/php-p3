@@ -28,7 +28,7 @@ function turnToSnippet ($title, $date, $summary, $image, $id) {
     print $imgInHTML = "<div class=\"snippet\"><div class=\"img-container\"><img src=\"{$image}\"></div>";
     print $titleInHTML = "<h2 class=\"title-teaser\">{$title}</h2>";
     print $dateInHTML = "<p class=\"date\"> Publicado el " .dateParser($date) ."</p>";
-    print $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."...<em><a href=\"http://localhost/test/post.php?id={$id}\"> saber más</a></em></p></div>";
+    print $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."... <em><a href=\"http://localhost/test/post.php?id={$id}\">saber más</a></em></p></div>";
 }
 
 for ($i = 1; $i <= 5; $i++) {
