@@ -17,6 +17,7 @@
                 ?>
             </ul>
         </div>
+        <?php include "main_menu.php"; ?>
     </nav>
 <?php
 function dateParser ($date) {
