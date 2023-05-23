@@ -48,6 +48,34 @@ $knowMore = [
 $publishedLabel = [
     'es' => "Publicado el",
     'en' => "Published on"
-]
+];
+
+$login = [
+    'password' => [
+        'es' => 'Contraseña',
+        'en' => 'Password',
+    ],
+    'username' => [
+        'es' => 'Usuario',
+        'en' => 'Username'
+    ],
+    'submit' => [
+        'es' => 'Iniciar sesión',
+        'en' => 'Log in'
+    ],
+    'onSuccess' => [
+        'es' => 'Se ha iniciado sesión correctamente',
+        'en' => 'Login successful!'
+    ],
+    'onFailure' => [
+        'es' => 'El nombre de usuario o contraseña son erróneos',
+        'en' => 'Invalid username or password!'
+    ]
+];
+
+$greeting = [
+    'en' => 'Hello',
+    'es' => 'Hola'
+];
 
 ?>
