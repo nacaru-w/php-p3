@@ -61,6 +61,11 @@ nav>div>ul {
     gap: 1em;
 }
 
+.active {
+    text-decoration: underline;
+    color: var(--text-color) !important;
+}
+
 .menu-options {
     margin-left: auto;
 }
