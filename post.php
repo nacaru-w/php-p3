@@ -8,6 +8,16 @@
     <title>Blog post</title>
 </head>
 <body>
+<?php include 'term_dictionary.php';?>
+<nav>
+        <div class="lang-options"> 
+            <ul>
+                <?php
+                include 'language_switcher.php';
+                ?>
+            </ul>
+        </div>
+    </nav>
 <?php
 function dateParser ($date) {
     $parsedDate = date("d-m-Y", $date);
@@ -15,9 +25,12 @@ function dateParser ($date) {
 }
 
 function turnToPost ($title, $date, $summary, $image) {
+    global $currentLanguage;
+    global $publishedLabel;
+
     print $imgInHTML = "<div class=\"snippet\"><div class=\"img-container\"><img src=\"{$image}\"></div>";
     print $titleInHTML = "<h2 class=\"title-teaser\">{$title}</h2>";
-    print $dateInHTML = "<p class=\"date\"> Publicado el " .dateParser($date) ."</p>";
+    print $dateInHTML = "<p class=\"date\"> {$publishedLabel[$currentLanguage]} " .dateParser($date) ."</p>";
     print $summaryInHTML = "<p class=\"summary\">" .$summary ."</p></div>";
 }
 
@@ -27,7 +40,7 @@ $api_url = "api/noticias/es/post_${id}.json";
 $json= file_get_contents($api_url);
 $data = json_decode($json);
 
-turnToPost($data -> title -> es, $data -> date, $data -> description -> es, $data -> image);
+turnToPost($data -> title -> $currentLanguage, $data -> date, $data -> description -> $currentLanguage, $data -> image);
 
 ?>
 </body>

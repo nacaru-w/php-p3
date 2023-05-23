@@ -7,19 +7,39 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Página principal</h1>
+    <?php include 'term_dictionary.php'?>
+    <nav>
+        <div class="lang-options"> 
+            <ul>
+                <?php
+                include 'language_switcher.php';
+                ?>
+            </ul>
+        </div>
+    </nav>
+    <h1>
+        <?php
+        print $pageTitles['main'][$currentLanguage];
+        ?>
+    </h1>
     
 <div class="blog">
     <div class="sort-menu">
-        <p>Ordenar:</p>
+        <p>
+            <?php
+            print $sortOpts['mainLabel'][$currentLanguage].":";
+            ?>
+        </p>
         <ul class="sort-options">
-            <li><a href="blog.php?sortType=title">A-Z</a></li>
-            <li><a href="blog.php?sortType=title&sortDir=reverse">Z-A</a></li>
-            <li><a href="blog.php?sortType=date&sortDir=reverse">más reciente</a></li>
-            <li><a href="blog.php?sortType=date">más antiguo</a></li>
+            <?php
+            print $AZOption = "<li><a href='blog.php?sortType=title&lang={$currentLanguage}'>A-Z</a></li>";
+            print $ZAOption = "<li><a href='blog.php?sortType=title&sortDir=reverse&lang={$currentLanguage}'>Z-A</a></li>";
+            print $recentOption = "<li><a href='blog.php?sortType=date&sortDir=reverse&lang=${currentLanguage}'>" . $sortOpts['recentLabel'][$currentLanguage] . "</a></li>";
+            print $oldOption = "<li><a href='blog.php?sortType=date&lang=${currentLanguage}'>" . $sortOpts['oldLabel'][$currentLanguage] . "</a></li>"
+            ?>
         </ul>
     </div>
-<?php 
+<?php
 
 $sortType = $_GET['sortType'];
 $sortDir = $_GET['sortDir'];
@@ -39,11 +59,14 @@ function textTrimmer ($string) {
 }
 
 function turnToSnippet ($title, $date, $summary, $image, $id) {
+    global $knowMore;
+    global $publishedLabel;
+    global $currentLanguage;
 
     $imgInHTML = "<div class=\"snippet\"><div class=\"img-container\"><img src=\"{$image}\"></div>";
     $titleInHTML = "<h2 class=\"title-teaser\">{$title}</h2>";
-    $dateInHTML = "<p class=\"date\"> Publicado el " .dateParser($date) ."</p>";
-    $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."... <em><a href=\"post.php?id={$id}\">saber más</a></em></p></div>";
+    $dateInHTML = "<p class=\"date\"> {$publishedLabel[$currentLanguage]} " .dateParser($date) ."</p>";
+    $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."... <em><a href=\"post.php?id={$id}\">{$knowMore[$currentLanguage]}</a></em></p></div>";
 
     $finalSnippet = $imgInHTML . $titleInHTML . $dateInHTML . $summaryInHTML;
 
@@ -58,7 +81,7 @@ for ($i = 1; $i <= 5; $i++) {
 
     switch($sortType) {
         case 'title':
-            $snippetArray[$i] = $data -> title -> es;
+            $snippetArray[$i] = $data -> title -> $currentLanguage;
             continue;
 
         case 'date':
@@ -66,7 +89,7 @@ for ($i = 1; $i <= 5; $i++) {
             continue;
 
         default:
-            turnToSnippet($data -> title -> es, $data -> date, $data -> description -> es, $data -> image, $i);
+            turnToSnippet($data -> title -> $currentLanguage, $data -> date, $data -> description -> $currentLanguage, $data -> image, $i);
             break;
     }
 
@@ -89,7 +112,7 @@ if ($sortType) {
         $json = file_get_contents($api_url);
         $data = json_decode($json);
 
-        turnToSnippet($data -> title -> es, $data -> date, $data -> description -> es, $data -> image, $key);
+        turnToSnippet($data -> title -> $currentLanguage, $data -> date, $data -> description -> $currentLanguage, $data -> image, $key);
 
     }
 }
