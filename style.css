@@ -59,6 +59,60 @@ nav {
 nav>div>ul {
     display: flex;
     gap: 1em;
+    align-items: center;
+}
+
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 60vh;
+}
+
+form {
+    width: min(500px, 90%);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: var(--shadow-color);
+}
+
+form>* {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+label {
+    font-weight: bold;
+    padding-top: 2em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    color: var(--text-color);
+}
+
+input {
+    width: min(400px, 85%);
+    border: 1px solid whitesmoke;
+    padding: 0.25em;
+    text-align: center;
+    border-radius: 5px;
+}
+
+button {
+    margin: 2.5em;
+    width: min(200px, 60%);
+    padding: 0.25em;
+    border: 1px solid transparent;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
 }
 
 .active {
@@ -128,4 +182,27 @@ div.post {
 img {
     width: 100%;
     height: auto;
+}
+
+.warning {
+    border: solid var(--snippet-bg-color) 2px;
+    background-color: var(--shadow-color);
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1.5em;
+    border-radius: 5px;
+    width: min(300px, 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting {
+    font-size: 0.75em;
+    font-weight: bold;
+    background-color: var(--shadow-color);
+    color: var(--text-color);
+    padding: 0.5em;
+    border-radius: 5px;
 }
