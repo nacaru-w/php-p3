@@ -37,6 +37,11 @@ a:visited {
     color: var(--link-color);
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 em {
     font-style: normal;
 }
@@ -44,6 +49,20 @@ em {
 .blog {
     display: flex;
     flex-flow: column;
+}
+
+nav {
+    display: flex;
+    margin: 2em;
+}
+
+nav>div>ul {
+    display: flex;
+    gap: 1em;
+}
+
+.menu-options {
+    margin-left: auto;
 }
 
 .sort-menu {
