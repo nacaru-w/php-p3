@@ -2,8 +2,7 @@
 
 $currentLanguage = $_GET['lang'] ?? 'es';
 
-function generateLanguageSwitcher($currentLanguage)
-    {
+function generateLanguageSwitcher($currentLanguage) {
         $languages = ['es', 'en'];  
 
         $switcher = '';
@@ -18,8 +17,7 @@ function generateLanguageSwitcher($currentLanguage)
         return $switcher;
     }
 
-    function getUrlWithLang($language)
-    {
+    function getUrlWithLang($language) {
         $url = $_SERVER['PHP_SELF']; 
 
         $query = $_SERVER['QUERY_STRING'];
