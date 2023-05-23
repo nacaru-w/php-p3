@@ -16,6 +16,7 @@
                 ?>
             </ul>
         </div>
+        <?php include "main_menu.php"; ?>
     </nav>
     <h1>
         <?php
@@ -66,7 +67,7 @@ function turnToSnippet ($title, $date, $summary, $image, $id) {
     $imgInHTML = "<div class=\"snippet\"><div class=\"img-container\"><img src=\"{$image}\"></div>";
     $titleInHTML = "<h2 class=\"title-teaser\">{$title}</h2>";
     $dateInHTML = "<p class=\"date\"> {$publishedLabel[$currentLanguage]} " .dateParser($date) ."</p>";
-    $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."... <em><a href=\"post.php?id={$id}\">{$knowMore[$currentLanguage]}</a></em></p></div>";
+    $summaryInHTML = "<p class=\"summary\">" .textTrimmer($summary) ."... <em><a href=\"post.php?id={$id}&lang={$currentLanguage}\">{$knowMore[$currentLanguage]}</a></em></p></div>";
 
     $finalSnippet = $imgInHTML . $titleInHTML . $dateInHTML . $summaryInHTML;
 
