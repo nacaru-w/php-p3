@@ -21,4 +21,14 @@ $sortOpts = [
     ]
 ];
 
+$knowMore = [
+    'es' => "saber más",
+    'en' => "continue reading"
+];
+
+$publishedLabel = [
+    'es' => "Publicado el",
+    'en' => "Published on"
+]
+
 ?>
