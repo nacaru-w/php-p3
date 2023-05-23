@@ -1,4 +1,23 @@
 <?php
+$navMenu = [
+    "login" => [
+        'es' => 'Iniciar sesión',
+        'en' => 'Login'
+    ],
+    "profile" => [
+        'es' => 'Perfil',
+        'en' => 'Profile'
+    ],
+    "logout" => [
+        'es' => 'Cerrar sesión',
+        'en' => 'Logout'
+    ],
+    "home" => [
+        'es' => 'Inicio',
+        'en' => 'Home'
+    ]   
+];
+
 $pageTitles = [
     "main" => [
         'es' => "Página principal", 
