@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+
 function linkBuilder($fileName, $optionName, $language) {
     return "<li><a href='{$fileName}?lang={$language}'>" . $optionName . "</a></li>";
 }
@@ -10,9 +16,12 @@ function linkBuilder($fileName, $optionName, $language) {
         print linkBuilder("blog.php", $navMenu["home"][$currentLanguage], $currentLanguage);
         print linkBuilder("actividad_1.php", "Act 1", $currentLanguage);
         print linkBuilder("nada", "API", $currentLanguage);
-        print linkBuilder("nada", $navMenu["login"][$currentLanguage], $currentLanguage);
+        if (!isset($_SESSION['username'])) {
+            print linkBuilder("login.php", $navMenu["login"][$currentLanguage], $currentLanguage);
+        }
         print linkBuilder("nada", $navMenu["profile"][$currentLanguage], $currentLanguage);
         print linkBuilder("nada", $navMenu["logout"][$currentLanguage], $currentLanguage);
+        print "<li class='greeting'>{$greeting[$currentLanguage]}, {$username}</li>";
         ?>
     </ul>
 </div>
