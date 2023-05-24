@@ -15,7 +15,7 @@ function linkBuilder($fileName, $optionName, $language) {
         <?php
         print linkBuilder("blog.php", $navMenu["home"][$currentLanguage], $currentLanguage);
         print linkBuilder("actividad_1.php", "Act 1", $currentLanguage);
-        print linkBuilder("nada", "API", $currentLanguage);
+        print linkBuilder("api/noticias/en", "API", $currentLanguage);
         if (!isset($_SESSION['username'])) {
             print linkBuilder("login.php", $navMenu["login"][$currentLanguage], $currentLanguage);
         }
