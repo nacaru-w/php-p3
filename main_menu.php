@@ -19,9 +19,11 @@ function linkBuilder($fileName, $optionName, $language) {
         if (!isset($_SESSION['username'])) {
             print linkBuilder("login.php", $navMenu["login"][$currentLanguage], $currentLanguage);
         }
-        print linkBuilder("nada", $navMenu["profile"][$currentLanguage], $currentLanguage);
-        print linkBuilder("nada", $navMenu["logout"][$currentLanguage], $currentLanguage);
-        print "<li class='greeting'>{$greeting[$currentLanguage]}, {$username}</li>";
+        if (isset($_SESSION['username'])) { 
+            print linkBuilder("profile.php", $navMenu["profile"][$currentLanguage], $currentLanguage);
+            print linkBuilder("logout.php", $navMenu["logout"][$currentLanguage], $currentLanguage);
+            print "<li class='greeting'>{$greeting[$currentLanguage]}, {$username}</li>";
+        }
         ?>
     </ul>
 </div>
