@@ -8,6 +8,21 @@
     <title>Logout</title>
 </head>
 <body>
-    
+<?php include 'term_dictionary.php'?>
+    <nav>
+        <div class="lang-options"> 
+            <ul>
+                <?php
+                include 'language_switcher.php';
+                ?>
+            </ul>
+        </div>
+        <?php include "main_menu.php"; ?>
+    </nav>
+<?php
+$_SESSION = array();
+session_destroy();
+header("Location: blog.php?lang={$currentLanguage}");
+?>
 </body>
 </html>
