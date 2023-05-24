@@ -7,6 +7,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php include 'term_dictionary.php'?>
+    <nav>
+        <div class="lang-options"> 
+            <ul>
+                <?php
+                include 'language_switcher.php';
+                ?>
+            </ul>
+        </div>
+        <?php include "main_menu.php"; ?>
+    </nav>
 <?php
 
 $api_url = "api/noticias/es/post_1.json";
