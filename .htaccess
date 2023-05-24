@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule api/noticias/en handle_api.php [L]
